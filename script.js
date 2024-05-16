@@ -60,16 +60,22 @@ async function Mypost() {
     let location = document.querySelector(".form input[placeholder='Location']").value;
     let price = document.querySelector(".form input[placeholder='Price']").value;
     let minimum_nights = document.querySelector(".form input[placeholder='Minimum Nights']").value;
-    let data = {
-        name: name,
-        location: location,
-        price: price,
-        minimum_nights: minimum_nights
+    if (name != "" && location != "" && price != "" && minimum_nights != "") {
+        let data = {
+            name: name,
+            location: location,
+            price: price,
+            minimum_nights: minimum_nights
+        }
+    
+        MyRequest("https://www.nodejs.sulla.hu/data", "POST", JSON.stringify(data));
+        let response = await MyRequest("https://www.nodejs.sulla.hu/data", "GET");
+        ShowCards(response);
     }
-
-    MyRequest("https://www.nodejs.sulla.hu/data", "POST", JSON.stringify(data));
-    let response = await MyRequest("https://www.nodejs.sulla.hu/data", "GET");
-    ShowCards(response);
+    else{
+        alert("Minden mezőt ki kell tölteni!")
+    }
+   
 }
 
 async function MyRequest(URL, method, body = null) {
@@ -134,15 +140,20 @@ function CreateCard(id,header, body) {
             let location = document.querySelector(".form input[placeholder='Location']").value;
             let price = document.querySelector(".form input[placeholder='Price']").value;
             let minimum_nights = document.querySelector(".form input[placeholder='Minimum Nights']").value;
-            let data = {
-                name: name,
-                location: location,
-                price: price,
-                minimum_nights: minimum_nights
+            if (name != "" && location != "" && price != "" && minimum_nights != "") {
+                let data = {
+                    name: name,
+                    location: location,
+                    price: price,
+                    minimum_nights: minimum_nights
+                }
+                MyRequest(`https://www.nodejs.sulla.hu/data/${id}`, "PUT", JSON.stringify(data));
+                let response = await MyRequest("https://www.nodejs.sulla.hu/data", "GET");
+                ShowCards(response);
             }
-            MyRequest(`https://www.nodejs.sulla.hu/data/${id}`, "PUT", JSON.stringify(data));
-            let response = await MyRequest("https://www.nodejs.sulla.hu/data", "GET");
-            ShowCards(response);
+            else{
+                alert("Minden mezőt ki kell tölteni!")
+            }
         }
     });
 

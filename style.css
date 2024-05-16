@@ -1,8 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: rgb(1, 63, 63);
-    color: #88bac8;
+    background-color: black;
+    color: #151515;
 }
 
 #container{
@@ -12,7 +12,7 @@ body{
 
 nav{
     display: flex;
-    background-color: rgb(109, 197, 226);
+    background-color: #A91D3A;
     height: 50px;
 }
 
@@ -22,7 +22,7 @@ nav{
     margin: 5px 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: #4d869b;
+    color: #151515;
     cursor: pointer;
     &:hover{
         color: rgba(55, 55, 206, 0.747);
@@ -35,7 +35,7 @@ nav{
     margin: 20px;
     width: fit-content;
     height: max-content;
-    background-color: #333a57;
+    background-color: darkgrey;
     border-radius: 15px;
     padding: 5px;
 }
